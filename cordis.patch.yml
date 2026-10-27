@@ -1,0 +1,17 @@
+# dsh-workspace-inherit 的 bundle 层：插入唯一的 Host 行。
+#
+# 该插件不修改 dsh 源码，也不接管 agent-instructions / skill-filesystem：
+# - 指令：在 core 基线之外，补“母工作区”那几层 AGENTS.md/CLAUDE.md，
+#   作为一条独立的持久 user 消息注入，并在每次 pre-step 检查文件变化后追增量。
+# - skills：注册一个 rank 介于当前工作区（100/200）与 runtime（250）/custom（300）
+#   之间的 provider，扫描母工作区的 .dsh/skills 与 .agents/skills。
+#
+# 只在本机已有工作区注册表（ctx.workspaceRegistry）时会话才会看到母工作区；
+# 没有该服务的组合（例如纯 headless）自动降级为不注入，插件不会报错。
+- insert:
+    - id: workspace-inherit
+      name: dsh-workspace-inherit
+      config:
+        enabled: true
+        includeInstructions: true
+        includeSkills: true

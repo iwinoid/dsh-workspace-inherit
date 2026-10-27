@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "工作区继承",
+    "description": "嵌套的子工作区继承母工作区的 AGENTS.md 与 .dsh/.agents skills。"
+  }
+}

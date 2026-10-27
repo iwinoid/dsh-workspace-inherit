@@ -1,0 +1,44 @@
+{
+  "name": "dsh-workspace-inherit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "让 DSH 里嵌套的子工作区继承母工作区的 AGENTS.md 与 skills：父级指令以一条更宽泛的持久消息注入并随文件变化刷新，父级 skills 以独立 provider 进入目录。",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "for f in lib/*.js; do node --check \"$f\" || exit 1; done"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "workspace",
+    "agents-md",
+    "skills",
+    "nested"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

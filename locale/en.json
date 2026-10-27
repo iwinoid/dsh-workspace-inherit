@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Workspace Inheritance",
+    "description": "Nested workspaces inherit their parent workspace's AGENTS.md files and .dsh/.agents skills."
+  }
+}
